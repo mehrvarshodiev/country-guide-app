@@ -7,3 +7,39 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.cursor-dot {
+  animation: cursorDotAnim 0.5s infinite alternate;
+}
+
+.cursor-dot::after {
+  content: '';
+}
+
+@keyframes cursorDotAnim {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 0.7;
+  }
+}
+
+.expand {
+  animation: cursorDotAnim2 0.5s infinite forwards;
+  border: 1px solid #fc1e1e;
+}
+
+@keyframes cursorDotAnim2 {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 3;
+  }
+
+  100% {
+    scale: 1;
+    opacity: 0;
+  }
+}

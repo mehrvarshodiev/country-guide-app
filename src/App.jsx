@@ -23,31 +23,23 @@ const App = () => {
       const posY = e.clientY;
 
       cursorDot.style.display = `block`;
-      cursorOutline.style.display = `block`;
+      // cursorOutline.style.display = `block`;
 
-      cursorDot.style.left = `${posX}px`;
-      cursorDot.style.top = `${posY}px`;
+      cursorDot.style.left = `${posX - 10}px`;
+      cursorDot.style.top = `${posY - 10}px`;
 
-      cursorOutline.style.left = `${posX}px`;
-      cursorOutline.style.top = `${posY}px`;
+      // cursorOutline.style.left = `${posX}px`;
+      // cursorOutline.style.top = `${posY}px`;
     };
 
-    window.onmouseout = (e) => {
-      const windowWidth = window.innerWidth;
-      const windowHeight = window.innerHeight;
-      if (
-        e.pageX < 0 ||
-        e.pageX >= windowWidth ||
-        e.pageY < 0 ||
-        e.pageY > windowHeight
-      ) {
-        cursorDot.style.display = `none`;
-        cursorOutline.style.display = `none`;
-      } else {
-        console.log('cursor-default');
-        cursorDot.style.display = `block`;
-        cursorOutline.style.display = `block`;
-      }
+    window.onmouseout = () => {
+      cursorDot.style.display = `none`;
+      // cursorOutline.style.display = `none`;
+    };
+    window.onclick = () => {
+      cursorDot.classList.add('expand');
+
+      setTimeout(() => cursorDot.classList.remove('expand'), 1000);
     };
   }
 
